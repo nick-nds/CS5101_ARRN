@@ -1,7 +1,7 @@
-#include <stdio.h>
 #include "lib/register.h"
 
-void main(void)
+int main(void)
 {
     regi();
+    return 0;
 }
