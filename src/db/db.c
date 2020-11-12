@@ -10,9 +10,10 @@
  * usage: refer documentation
  */
 
-struct users readusers(int id, char username[])
+struct users readusers(int id)
 {
     FILE *infile;
+    int i;
 
     infile=fopen("users.dat", "r");
     if(infile==NULL)
@@ -21,9 +22,15 @@ struct users readusers(int id, char username[])
         exit(1);
     }
 
-    struct users outstruct;
+    struct users outstruct[5];
     struct users input;
 
+    for(i=0; i<5; i++) {
+        fread(&input, sizeof(struct users), 1, infile);
+        outstruct[i]=input;
+    }
+
+    /*
     while(fread(&input, sizeof(struct users), 1, infile))
     {
         if(username==NULL) {
@@ -43,9 +50,16 @@ struct users readusers(int id, char username[])
             }
         }
     }
+    */
+    /*
+    while(fread(&input, sizeof(struct users), 1, infile))
+    {
+        printf("id: %d\nName: %s\nRole: %s\n\n", input.id, input.lname, input.role);
+    }
+    */
 
     fclose(infile);
-    return outstruct;
+    return outstruct[id];
 }
 
 

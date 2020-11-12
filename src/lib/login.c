@@ -6,8 +6,11 @@
 int login(char username[], char password[])
 {
     struct users data;
-    data=readusers(266, NULL);
-    printf("Password: %s", data.fname);
+    data=readusers(2);
+    printf("Fname: %s", data.username);
+    printf("Role: %s", data.password);
+    printf("\n%s", password);
+    /*
     if(data.password == password) {
         printf("Success");
         return 0;
@@ -15,4 +18,6 @@ int login(char username[], char password[])
         printf("Fail");
         return 1;
     }
+    */
+    return 0;
 }

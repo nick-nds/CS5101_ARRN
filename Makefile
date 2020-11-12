@@ -16,4 +16,4 @@ login.o: src/lib/login.c src/db/db.c src/db/db.h src/lib/userstruct.h
 	gcc -c src/lib/login.c
 
 clean:
-	rm -f *.o main && echo "" > users.dat && echo "" > products.dat && cp src/db/users.dat ./users.dat
+	rm -f *.o main users.dat products.dat && cp src/db/users.dat ./users.dat && cp src/db/products.dat ./products.dat
