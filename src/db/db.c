@@ -30,13 +30,16 @@ struct users readusers(int id, char username[])
             if(id!=0) {
                 if(input.id==id) {
                     outstruct = input;
+                    printf("%s", outstruct.username);
                 }
             } else {
                 outstruct = input;
+                printf("%s", outstruct.username);
             }
         } else {
             if(input.username==username) {
                 outstruct = input;
+                printf("%s", outstruct.username);
             }
         }
     }
