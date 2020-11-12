@@ -6,10 +6,16 @@
 int login(char username[], char password[])
 {
     struct users data;
-    data=readusers(2);
-    printf("Fname: %s", data.username);
-    printf("Role: %s", data.password);
-    printf("\n%s", password);
+    int i;
+    for(i=0; i<5; i++) {
+        data=readusers(i);
+        if(strcmp(data.username, username)==0) {
+            if(strcmp(data.password, password)==0) {
+                printf("Login Success for user: %s.\n", data.fname);
+                break;
+            }
+        }
+    }
     /*
     if(data.password == password) {
         printf("Success");

@@ -69,8 +69,8 @@ vmap , <Plug>(emmet-expand-abbr)
 nmap , <Plug>(emmet-expand-abbr)
 vnoremap J :m '>+1gv=gv
 vnoremap K :m '<-2gv=gv
-nmap <silent> \ig <Plug>IndentGuidesToggle
 nmap \tc <Plug>Colorizer
+nmap <silent> \ig <Plug>IndentGuidesToggle
 nmap \f <Plug>(coc-format-selected)
 xmap \f <Plug>(coc-format-selected)
 nmap \gr <Plug>(coc-references)
@@ -81,11 +81,13 @@ nnoremap tl :tablast
 nnoremap tj :tabprev
 nnoremap tk :tabnext
 nnoremap th :tabfirst
-nnoremap <SNR>79_: :=v:count ? v:count : ''
-nnoremap <SNR>75_: :=v:count ? v:count : ''
-nnoremap <Plug>(-fzf-vim-do) :execute g:__fzf_command
-nnoremap <Plug>(-fzf-/) /
+nnoremap <SNR>81_: :=v:count ? v:count : ''
+nnoremap <silent> <Plug>Colorizer :ColorToggle
 nnoremap <Plug>(-fzf-:) :
+nnoremap <Plug>(-fzf-/) /
+nnoremap <Plug>(-fzf-vim-do) :execute g:__fzf_command
+nnoremap <SNR>75_: :=v:count ? v:count : ''
+nnoremap <SNR>79_: :=v:count ? v:count : ''
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 onoremap <silent> <Plug>(fzf-maps-o) :call fzf#vim#maps('o', 0)
@@ -131,7 +133,6 @@ vmap <C-Y>, <Plug>(emmet-expand-abbr)
 vnoremap <Plug>(emmet-expand-abbr) :call emmet#expandAbbr(2,"")
 nmap <C-Y>, <Plug>(emmet-expand-abbr)
 nnoremap <Plug>(emmet-expand-abbr) :call emmet#expandAbbr(3,"")
-nnoremap <silent> <Plug>Colorizer :ColorToggle
 onoremap <silent> <Plug>(coc-classobj-a) :call coc#rpc#request('selectSymbolRange', [v:false, '', ['Interface', 'Struct', 'Class']])
 onoremap <silent> <Plug>(coc-classobj-i) :call coc#rpc#request('selectSymbolRange', [v:true, '', ['Interface', 'Struct', 'Class']])
 vnoremap <silent> <Plug>(coc-classobj-a) :call coc#rpc#request('selectSymbolRange', [v:false, visualmode(), ['Interface', 'Struct', 'Class']])
@@ -520,17 +521,11 @@ setlocal wrapmargin=0
 normal! zo
 29
 normal! zo
-30
-normal! zo
-31
-normal! zo
-32
-normal! zo
 36
 normal! zo
-40
+37
 normal! zo
-41
+38
 normal! zo
 let s:l = 1 - ((0 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
@@ -669,12 +664,12 @@ setlocal wrap
 setlocal wrapmargin=0
 7
 normal! zo
-let s:l = 10 - ((9 * winheight(0) + 9) / 19)
+let s:l = 11 - ((10 * winheight(0) + 9) / 19)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-10
-normal! 05|
+11
+normal! 0
 lcd ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce
 wincmd w
 argglobal
@@ -804,13 +799,11 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-9
-normal! zo
-let s:l = 62 - ((14 * winheight(0) + 9) / 18)
+let s:l = 1 - ((0 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-62
+1
 normal! 0
 lcd ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce
 wincmd w
@@ -825,13 +818,13 @@ exe '4resize ' . ((&lines * 18 + 20) / 40)
 exe 'vert 4resize ' . ((&columns * 75 + 75) / 151)
 tabnext 1
 badd +1 ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce/Makefile
-badd +0 ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce
+badd +1 ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce
 badd +1 ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce/src/db/db.c
-badd +8 ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce/src/main.c
+badd +0 ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce/src/main.c
+badd +34 ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce/src/lib/testdata.c
 badd +12 ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce/src/lib/login.c
 badd +3 ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce/src/lib/login.h
 badd +6 ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce/src/lib/userstruct.h
-badd +34 ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce/src/lib/testdata.c
 badd +5 ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce/src/lib/register.c
 badd +5 ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce/src/lib/register.h
 badd +4 ~/adrive/IISERK/Sem-9/CS5101/mid-sem-assignment/ecommerce/src/db/db.h

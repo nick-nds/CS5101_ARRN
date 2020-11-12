@@ -5,7 +5,7 @@
 int main(void)
 {
     //regi();
-    login("rohit", "rohit");
+    login("nick", "nick");
     //usersdata();
     return 0;
 }
