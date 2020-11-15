@@ -12,6 +12,7 @@ db.o: ${DIR}/lib/db/db.c ${DIR}/headers/userstruct.h
 	gcc -c ${DIR}/lib/db/db.c
 
 register.o: ${DIR}/lib/users/register.c ${DIR}/lib/db/db.c ${DIR}/headers/db.h ${DIR}/headers/userstruct.h
+	gcc -c ${DIR}/lib/users/register.c
 
 addproducts.o: ${DIR}/lib/db/db.c ${DIR}/headers/db.h ${DIR}/headers/userstruct.h
 	gcc -c ${DIR}/lib/products/addproducts.c
