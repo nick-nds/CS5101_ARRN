@@ -1,19 +1,27 @@
 # Makefile
 
-main: main.o register.o db.o login.o
+DIR=src
+
+main: main.o register.o db.o login.o ${DIR}/headers/colors.h
 	gcc main.o db.o login.o register.o -o main
 
-main.o: src/main.c
-	gcc -c src/main.c
+main.o: ${DIR}/main.c
+	gcc -c ${DIR}/main.c
 
-db.o: src/db/db.c src/lib/userstruct.h
-	gcc -c src/db/db.c
+db.o: ${DIR}/lib/db/db.c ${DIR}/headers/userstruct.h
+	gcc -c ${DIR}/lib/db/db.c
 
-register.o: src/lib/register.c src/db/db.c src/db/db.h src/lib/userstruct.h
-	gcc -c src/lib/register.c
+register.o: ${DIR}/lib/users/register.c ${DIR}/lib/db/db.c ${DIR}/headers/db.h ${DIR}/headers/userstruct.h
+	gcc -c ${DIR}/lib/users/register.c
 
-login.o: src/lib/login.c src/db/db.c src/db/db.h src/lib/userstruct.h
-	gcc -c src/lib/login.c
+login.o: ${DIR}/lib/users/login.c ${DIR}/lib/db/db.c ${DIR}/headers/db.h ${DIR}/headers/userstruct.h
+	gcc -c ${DIR}/lib/users/login.c
+
+seed: ${DIR}/lib/db/db.c ${DIR}/headers/db.h
+	gcc ${DIR}/lib/db/gendb.c ${DIR}/lib/db/db.c -o seed 
+
+mv_db:
+	mv ./users.dat ${DIR}/lib/db
 
 clean:
-	rm -f *.o main users.dat products.dat && cp src/db/users.dat ./users.dat && cp src/db/products.dat ./products.dat
+	rm -f *.o main users.dat products.dat seed && cp ${DIR}/lib/db/users.dat ./users.dat 2>/dev/null && cp ${DIR}/lib/db/products.dat ./products.dat 2>/dev/null

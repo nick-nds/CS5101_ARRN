@@ -2,5 +2,4 @@
 #define REGISTER_H_
 void regi();
 int getnewid();
-void usersdata();
 #endif

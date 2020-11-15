@@ -15,9 +15,9 @@ struct users
 struct products
 {
     int id;
-    char pname[20];
+    char pname[50];
     char category[20];
-    char seller[10];
+    char seller[20];
     float price;
     float ratings;
     int stock;

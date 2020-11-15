@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../lib/userstruct.h" //struct datatype for users and products
+#include "../../headers/userstruct.h" //struct datatype for users and products
 
 
 
@@ -152,4 +152,61 @@ void writeproducts(struct products input)
         printf("Fail\n");
         exit(1);
     }
+}
+
+void usersdata()
+{
+    FILE *outfile;
+    outfile=fopen("users.dat", "w");
+    if(outfile==NULL) {
+        fprintf(stderr, "\nError. Cannot open file.\n");
+        exit(1);
+    }
+
+    struct users admin = {1, "Niku", "Nitin", "nick", "nick", "admin", 1};
+    struct users customer1 = {2, "Nitin", "Niku", "nitin", "nitin", "customer", 1};
+    struct users customer2 = {3, "Akash", "Nigam", "akash", "akash", "customer", 1};
+    struct users customer3 = {4, "Rahul", "Pratap", "rahul", "rahul", "customer", 1};
+    struct users customer4 = {5, "Rohit", "Prasad", "rohit", "rohit", "customer", 1};
+
+    fwrite(&admin, sizeof(struct users), 1, outfile);
+    fwrite(&customer1, sizeof(struct users), 1, outfile);
+    fwrite(&customer2, sizeof(struct users), 1, outfile);
+    fwrite(&customer3, sizeof(struct users), 1, outfile);
+    fwrite(&customer4, sizeof(struct users), 1, outfile);
+
+    if(fwrite != 0) {
+        printf("Data added successfully\n");
+    } else {
+        printf("Error. Cannot write to file\n");
+    }
+
+    fclose(outfile);
+}
+
+
+void productsdata()
+{
+    FILE *outfile;
+    outfile=fopen("products.dat", "w");
+    if(outfile==NULL) {
+        fprintf(stderr, "\nError. Cannot open file.\n");
+        exit(1);
+    }
+
+    struct products product1 = {1, "Reebok Shoes", "Shoes and Handbags", "Asian Store", 1499.0, 4.7, 167};
+
+    fwrite(&product1, sizeof(struct products), 1, outfile);
+    //fwrite(&product2, sizeof(struct products), 1, outfile);
+    //fwrite(&product3, sizeof(struct products), 1, outfile);
+    //fwrite(&product4, sizeof(struct products), 1, outfile);
+    //fwrite(&product5, sizeof(struct products), 1, outfile);
+
+    if(fwrite != 0) {
+        printf("Data added successfully\n");
+    } else {
+        printf("Error. Cannot write to file\n");
+    }
+
+    fclose(outfile);
 }

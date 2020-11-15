@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
-#include "../db/db.h"
-#include "userstruct.h"
+#include "../../headers/db.h"
+#include "../../headers/userstruct.h"
 
 int login(char username[], char password[])
 {
