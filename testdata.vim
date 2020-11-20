@@ -81,11 +81,13 @@ nnoremap tl :tablast
 nnoremap tj :tabprev
 nnoremap tk :tabnext
 nnoremap th :tabfirst
+nnoremap <SNR>82_: :=v:count ? v:count : ''
 nnoremap <SNR>74_: :=v:count ? v:count : ''
 nnoremap <SNR>79_: :=v:count ? v:count : ''
 nnoremap <Plug>(-fzf-vim-do) :execute g:__fzf_command
 nnoremap <Plug>(-fzf-/) /
 nnoremap <Plug>(-fzf-:) :
+nnoremap <SNR>85_: :=v:count ? v:count : ''
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 onoremap <silent> <Plug>(fzf-maps-o) :call fzf#vim#maps('o', 0)
@@ -374,25 +376,11 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-9
-normal! zo
-12
-normal! zo
-15
-normal! zo
-18
-normal! zo
-27
-normal! zo
-30
-normal! zo
-39
-normal! zo
-let s:l = 7 - ((6 * winheight(0) + 9) / 19)
+let s:l = 13 - ((12 * winheight(0) + 9) / 19)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7
+13
 normal! 0
 wincmd w
 argglobal
@@ -522,20 +510,20 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-12
+13
 normal! zo
-22
+28
 normal! zo
-25
+31
 normal! zo
-27
+36
 normal! zo
-let s:l = 5 - ((4 * winheight(0) + 9) / 18)
+let s:l = 33 - ((12 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-5
-normal! 02|
+33
+normal! 09|
 wincmd w
 argglobal
 if bufexists("src/headers/interface.h") | buffer src/headers/interface.h | else | edit src/headers/interface.h | endif
@@ -664,12 +652,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 4 - ((3 * winheight(0) + 9) / 19)
+let s:l = 7 - ((6 * winheight(0) + 9) / 19)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
-normal! 06|
+7
+normal! 03|
 wincmd w
 argglobal
 if bufexists("src/interface.c") | buffer src/interface.c | else | edit src/interface.c | endif
@@ -798,15 +786,28 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-5
+23
 normal! zo
-let s:l = 33 - ((8 * winheight(0) + 9) / 18)
+62
+normal! zo
+168
+normal! zo
+170
+normal! zo
+177
+normal! zo
+325
+normal! zo
+327
+normal! zo
+let s:l = 327 - ((13 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-33
-normal! 030|
+327
+normal! 016|
 wincmd w
+2wincmd w
 exe '1resize ' . ((&lines * 19 + 20) / 40)
 exe 'vert 1resize ' . ((&columns * 75 + 75) / 151)
 exe '2resize ' . ((&lines * 18 + 20) / 40)
@@ -818,11 +819,15 @@ exe 'vert 4resize ' . ((&columns * 75 + 75) / 151)
 tabnext 1
 badd +1 Makefile
 badd +3 src/main.c
-badd +24 src/lib/users/register.c
-badd +2 src/lib/users/login.c
+badd +6 src/headers/interface.h
 badd +0 src/interface.c
+badd +9 src/lib/users/register.c
+badd +2 src/lib/users/login.c
 badd +4 project/Main/Interface_login.c
-badd +0 src/headers/interface.h
+badd +15 src/headers/userstruct.h
+badd +9 src/lib/products/addproducts.c
+badd +218 src/lib/db/db.c
+badd +5 src/headers/db.h
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

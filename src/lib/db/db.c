@@ -13,7 +13,6 @@
 struct users readusers(int id)
 {
     FILE *infile;
-    int i;
     int userscount=getid("users");
 
     infile=fopen("users.dat", "r");
@@ -23,45 +22,14 @@ struct users readusers(int id)
         exit(1);
     }
 
-    struct users outstruct[userscount];
     struct users input;
 
-    for(i=0; i<userscount; i++) {
+    if(id<=userscount) {
+        fseek(infile, (id-1)*sizeof(struct users), 0);
         fread(&input, sizeof(struct users), 1, infile);
-        outstruct[i]=input;
     }
-
-    /*
-    while(fread(&input, sizeof(struct users), 1, infile))
-    {
-        if(username==NULL) {
-            if(id!=0) {
-                if(input.id==id) {
-                    outstruct = input;
-                    printf("%s", outstruct.username);
-                }
-            } else {
-                outstruct = input;
-                printf("%s", outstruct.username);
-            }
-        } else {
-            if(input.username==username) {
-                outstruct = input;
-                printf("%s", outstruct.username);
-            }
-        }
-    }
-    */
-    /*
-    while(fread(&input, sizeof(struct users), 1, infile))
-    {
-        printf("id: %d\nName: %s\nRole: %s\n\n", input.id, input.lname, input.role);
-    }
-    */
-
-    fclose(infile);
-    printf("%s\n", outstruct[id-1].fname);
-    return outstruct[id-1];
+    printf("Users: %s\n", input.fname);
+    return input;
 }
 
 
@@ -73,7 +41,6 @@ struct users readusers(int id)
 struct products readproducts(int id)
 {
     FILE *infile;
-    int i;
     int productscount=getid("products");
 
     infile=fopen("products.dat", "r");
@@ -83,21 +50,14 @@ struct products readproducts(int id)
         exit(1);
     }
 
-    struct products outstruct[productscount];
     struct products input;
 
     if(id<=productscount) {
-        printf("ProductsCount: %d\n", productscount);
-        for(i=0; i<productscount; i++) {
-            fread(&input, sizeof(struct products), 1, infile);
-            outstruct[i]=input;
-            printf("Forloop: %d\n", i);
-        }
+        fseek(infile, (id-1)*sizeof(struct products), 0);
+        fread(&input, sizeof(struct products), 1, infile);
     }
-
-    printf("%s\n", outstruct[id-1].pname);
-    fclose(infile);
-    return outstruct[id-1];
+    printf("dfsdf: %s\n", input.pname);
+    return input;
 }
 
 
@@ -229,13 +189,12 @@ int getid(char target[])
             exit(1);
         }
 
-        struct users input;
-
-        while(fread(&input, sizeof(struct users), 1, infile)) {
-            i++;
-        }
-        fclose(infile);
+        fseek(infile, 0L, SEEK_END);
+        int sz;
+        sz=ftell(infile);
+        i=sz/sizeof(struct users);
         return i;
+
     } else {
         infile=fopen("products.dat", "r");
         if(infile==NULL)
@@ -244,12 +203,10 @@ int getid(char target[])
             exit(1);
         }
 
-        struct products input;
-
-        while(fread(&input, sizeof(struct products), 1, infile)) {
-            i++;
-        }
-        fclose(infile);
+        fseek(infile, 0L, SEEK_END);
+        int sz;
+        sz=ftell(infile);
+        i=sz/sizeof(struct products);
         return i;
     }
 }

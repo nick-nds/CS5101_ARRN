@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "headers/login.h"
-#include "headers/register.h"
 #include "headers/interface.h"
+#include "headers/userstruct.h"
 #include <string.h>
 
 void header_interface() {
@@ -59,7 +58,7 @@ int main_interface()
     return input;
 }
 
-void login_interface()
+int login_interface()
 {
 	char str2[] = "Sign In"; 
 	char strUsername[] = "Username"; 
@@ -167,16 +166,14 @@ void login_interface()
 	scanf("%s", check);
 	
     if(ynprompt(check)==0) {
-        login(username, password);
+        return 0;
     } else {
-        login_interface();
+        return 1;
     }
 	
 	/*    check in string check is Login or Back*/
-	
-	
 }
-void register_interface()
+void register_interface(char regiArr[5][20])
 {
 	char str2[] = "Sign Up"; 
 	char strName[] = "Name";
@@ -313,12 +310,11 @@ void register_interface()
 	printf("%58s :", strPassword);
 	printf("%s\n\n\n\n\n\n",password);
 	
-	
-	
-	
-	
-	
-	
+    strcpy(regiArr[1], firstname);
+    strcpy(regiArr[2], lastname);
+    strcpy(regiArr[3], username);
+    strcpy(regiArr[4], password);
+    
 	//printf("\n\n%100s\n\n\n" , str5 );
 	
 	char check[50];
@@ -326,9 +322,9 @@ void register_interface()
 	scanf("%s", check);
 	
 	if(ynprompt(check)==0) {
-        regi(firstname, lastname, username, password);
+        strcpy(regiArr[0], "s");
     } else {
-        register_interface();
+        strcpy(regiArr[0], "f");
     }
 	
 	/*    check in string check is Login or Back*/
