@@ -379,45 +379,6 @@ int searchproducts(char keyword[], int *p)
     return 0;
 }
 
-int searchusers(char keyword[], int *p)
-{
-
-    int i, count=0, productscount=getid("users");
-
-    struct users outstruct;
-
-    char listone[productscount][50], listtwo[productscount][50];
-
-    for(i=0; i<productscount; i++) {
-        outstruct=readusers(i+1);
-        strcpy(listone[i], outstruct.fname);
-        strcpy(listtwo[i], outstruct.lname);
-    }
-    // Search function for 1st list
-    for (int i = 0; i < productscount; i++) {
-        char *source = listone[i];
-        // compare strings
-        char *found = strstr(toLower(source), toLower(keyword));
-        // if something is common in both string print the term
-        if (found != NULL) {
-            *(p+i)=i+1;
-            count++;
-        }
-    }
-    // Search function for 2nd list
-    for (int i = 0; i < productscount; i++) {
-        char *source = listtwo[i];
-        // compare strings
-        char *found = strstr(toLower(source), toLower(keyword));
-        // if something is common in both string print the term
-        if (found != NULL) {
-            *(p+i)=i+1;
-            count++;
-        }
-    }
-    return 0;
-}
-
 
 char *toLower(char *s) {
     for (char *p = s; *p; p++)
