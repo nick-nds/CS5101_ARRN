@@ -11,7 +11,7 @@
 ###Email ID: rps16ms064@iiserkol.ac.in###
 ###Roll No: 16MS064###
 @ref contributorsrahul has authored following functions/files of the application: <br/>
-@ref searchproducts() | @ref toLower() | @ref login() | @ref regi()
+@ref searchproducts() | @ref toLower() | @ref login() | @ref regi() | @ref editproducts()
 <hr>
 
 @section contributorsakash Akash Kumar Nigam
