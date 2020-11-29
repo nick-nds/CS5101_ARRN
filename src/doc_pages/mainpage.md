@@ -33,3 +33,5 @@ Run following command from root directory of the project to build the applicatio
 <div style='background-color: #d0d7ea; padding: 10px 15px'>**make clean**</div>
 ####Remove all binaries and also clean database####
 <div style='background-color: #d0d7ea; padding: 10px 15px'>**make reset**</div>
+####Windows###
+To build project in Download GnuWin32 so that **make** command is available in command prompt. Rest all the intructions to build application is same as given above.

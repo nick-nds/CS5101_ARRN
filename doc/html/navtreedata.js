@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "CS5101-MidSem Project", "index.html", [
+  [ "CS5101-Mid Semester Project", "index.html", [
     [ "CS5101 Mid Semester Assignment - Group 24", "index.html", "index" ],
     [ "Group Members", "contributors.html", [
       [ "Niku Nitin", "contributors.html#contributorsniku", null ],
