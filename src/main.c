@@ -1,6 +1,3 @@
-/*
- * Authored By: Akash Kumar Nigam
- */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,6 +13,10 @@
 int reset_productsid_arr(int *ptr, int size);
 void logout();
 
+///Authored By: @ref contributorsakash
+///
+/// This is main function defining the flow of the application.
+///@param void No parameters required
 int main(void)
 {
 
@@ -199,7 +200,15 @@ int main(void)
     return 1;
 }
 
+
+
 // function to clean previous search results
+///Authored By: @ref contributorsakash
+///
+///This function resets the searchResultIds Array
+///@param ptr Pointer avriable to searchResultIds Array
+///@param size Size of static array searchResultIds Array
+///@return Returns 0
 int reset_productsid_arr(int *ptr, int size)
 {
     int i;
@@ -210,7 +219,10 @@ int reset_productsid_arr(int *ptr, int size)
     return 0;
 }
 
-// function to logout users: simply deletes and create new session file
+///Authored By: @ref contributorsakash
+///
+/// function to logout users: simply deletes and create new session file
+///@return Returns void
 void logout()
 {
     system("rm cart.dat session.dat");

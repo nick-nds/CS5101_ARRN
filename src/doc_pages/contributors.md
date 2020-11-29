@@ -18,7 +18,7 @@
 ###Email ID: akn16ms147@iiserkol.ac.in###
 ###Roll No: 16MS147###
 @ref contributorsakash has authored following functions/files of the application: <br/>
-@ref ynprompt() | @ref users | @ref products
+@ref ynprompt() | @ref users | @ref products | @ref reset_productsid_arr() | @ref logout() | main.c
 <hr>
 
 @section contributorsrohit Rohit Prasad
